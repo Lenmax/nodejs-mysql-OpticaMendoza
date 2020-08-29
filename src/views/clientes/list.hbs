@@ -1,0 +1,53 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center">Clientes</h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a  href="/clientes/add" class="btn btn-primary mb-3 float-right"><i class="fa fa-plus" aria-hidden="true"></i> NUEVO CLIENTE</a>
+                        </div>
+                        {{!-- <div class="col-md-6">
+                            <div class="form-group row">
+                                <label for="" class="col-lg-3 col-form-label">Buscar:</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control rounded-pill" id="Buscar" onKeyUp="Buscar()">
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="table-responsive">
+                            <table class="table table-sm table-bordered" id="clientesTable">
+                                <thead class="thead-dark">
+                                    <tr class="text-center">
+                                        <th scope="col">#</th>
+                                        <th scope="col" >Nombre</th>
+                                        <th scope="col" >Edad</th>
+                                        <th scope="col" >Fecha Visita</th>
+                                        <th scope="col" >Montura</th>
+                                        <th scope="col" >Lentes</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        {{#each clientes}}
+                                        <tr>
+                                            <td class="text-center align-middle">{{idCliente}}</td>
+                                            <td class="align-middle">{{Nombre}}</td>
+                                            <td class="text-center align-middle">{{Edad}}</td>
+                                            <td class="text-center align-middle">{{FechaVisita}}</td>
+                                            {{!-- - {{timeago created_at}} --}}
+                                            <td class="text-center align-middle">{{Montura}}</td>
+                                            <td class="text-center align-middle">{{Lentes}}</td>
+                                            <td class="maxth100"><a href="/clientes/edit/{{idCliente}}" class="btn btn-info btn-block"><i class="fa fa-asterisk" aria-hidden="true"></i> Detalles</a></td>
+                                        </tr>
+                                        {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

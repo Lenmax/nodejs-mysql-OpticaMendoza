@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100 ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="icon"   href="/img/favicon.png" type="image/png" />
+    <title>Optica Mendoza</title>
+    {{!-- GOOGLE FONTS --}}
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+    {{!-- BOOTSTRAP 4 --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {{!-- FONT AWESOME 5 --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/js/style/tablefilter.css">
+
+    {{!-- STYLES --}}
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="d-flex flex-column h-100 bg-light">
+   {{> navigation }}
+
+    {{>message}}
+
+    {{{ body }}}
+
+    <footer class="footer mt-auto py-3">
+      <div class="container p-3 ">
+        <div class="row text-center text-white">
+          <div class="col ml-auto">
+            <p>Copyright &copy; 2020 OPTICA MENDOZA</p>
+          </div>
+        </div>
+      </div>       
+    </footer>
+
+    {{!-- SCRIPTS --}}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="/js/jquery.ui.datepicker-es.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+        <script src="/js/tablefilter.js"></script>
+
+        <script type="text/javascript">
+            $( function() {
+                $.datepicker.setDefaults($.datepicker.regional["es"])
+                $( "#FechaVisita" ).datepicker({
+                    firstDay: 1
+                });
+                $( "#FechaVisita" ).datepicker( "option", "dateFormat", "dd/mm/yy" )
+                $( "#FechaVisita" ).datepicker( "setDate", moment().format('DD/MM/YYYY') );
+                {{#if clientes}}
+                var tf = new TableFilter('clientesTable', {
+                    base_path: 'js/',
+                    ignore_diacritics: true,
+                    responsive: true,
+                    //popup_filters: true,
+                    highlight_keywords: true,
+                    auto_filter: true,
+                    col_0: 'none',
+                    col_6: 'none',
+                    col_types: [
+                        'number',
+                        'string',
+                        'number',
+                        { type: 'date', locale: 'es-PE', format: ['d/MM/yy'] },
+                        'string',
+                        'string',
+                        'string'
+                    ],
+                    filters_row_index: 1,
+                    //state: true,
+                    //alternate_rows: true,
+                    //rows_counter: true,
+                    btn_reset: true,
+                    //status_bar: true,
+                    //msg_filter: 'Filtering...',
+                    //
+                    //grid_layout: true,
+                    //grid_layout: {
+                    //    width: '100%'
+                    //},
+                    //paging: true,
+                    paging: {
+                        results_per_page: ['Ver: ', [10, 25, 50, 100]]
+                    },
+                    //themes: [{
+                    //    name: 'default'
+                    //}],
+                    //single_filter: {
+                    //    exclude_cols: [1,7],
+                    //    css_class: 'form-control',
+                    //},
+                    extensions:[{name: 'sort'}]
+                });
+                tf.init();
+                {{/if}}
+            } );
+
+            
+            //function Buscar() {
+            //   var x = document.getElementById("Buscar");
+            //    console.log($( "#Buscar" ).val());
+            //    const a = [];
+            //    {{#each clientes}}
+            //        a.push([{{idCliente}},"{{Nombre}}",{{Edad}},"{{FechaVisita}}"])
+            //    {{/each}}
+            //    console.log(a);
+            //};
+
+            //$(function () {
+                //$('[data-toggle="datepicker"]').datepicker();
+            //});
+        </script>
+</body>
+</html>

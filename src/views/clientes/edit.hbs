@@ -1,0 +1,136 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center">Cliente</h1>
+                    <form action="/clientes/add" method="POST">
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-6">
+                                <input type="text" value="{{cliente.Nombre}}" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre" disabled>
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-6">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" value="{{cliente.Edad}}" class="form-control" name="Edad" id="Edad" placeholder="Edad" disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" value="{{cliente.FechaVisita}}" class="form-control" name="FechaVisita" id="FechaVisitaEdit"  disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-6">
+                                <div class="form-check">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="ckb_lentes" name="Lentes" value="1" disabled {{#if cliente.Lentes}} checked {{/if}} >
+                                        <label class="custom-control-label" for="ckb_lentes">Lentes</label>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="ckb_montura" name="Montura" value="1" disabled {{#if cliente.Montura}} checked {{/if}}>
+                                        <label class="custom-control-label" for="ckb_montura">Montura</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <h4 class="text-center">DISTANCIA</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col" class="th70">ESFERICO</th>
+                                            <th scope="col" class="th70">CILINDRICO</th>
+                                            <th scope="col" class="th70">EJE</th>
+                                            <th scope="col" class="th70">DIP</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">OD</th>
+                                                <td>{{cliente.d_od_esferico}}</td>
+                                                <td>{{cliente.d_od_cilindrico}}</td>
+                                                <td>{{cliente.d_od_eje}}</td>
+                                                <td rowspan="2" style="padding-top: 7%;">{{cliente.d_dpi}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">OI</th>
+                                                <td>{{cliente.d_oi_esferico}}</td>
+                                                <td>{{cliente.d_oi_cilindrico}}</td>
+                                                <td>{{cliente.d_oi_eje}}</td>
+                                                {{!-- <td>{{cliente.d_oi_dpi}}</td> --}}
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <h4 class="text-center">CERCA</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col" class="th70">ESFERICO</th>
+                                            <th scope="col" class="th70">CILINDRICO</th>
+                                            <th scope="col" class="th70">EJE</th>
+                                            <th scope="col" class="th70">DIP</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">OD</th>
+                                                <td>{{cliente.c_od_esferico}}</td>
+                                                <td>{{cliente.c_od_cilindrico}}</td>
+                                                <td>{{cliente.c_od_eje}}</td>
+                                                <td rowspan="2" style="padding-top: 7%;">{{cliente.c_dpi}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">OI</th>
+                                                <td>{{cliente.c_oi_esferico}}</td>
+                                                <td>{{cliente.c_oi_cilindrico}}</td>
+                                                <td>{{cliente.c_oi_eje}}</td>
+                                                {{!-- <td>{{cliente.c_oi_dpi}}</td> --}}
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Defectos Visuales</h4>
+                        <div class="form-row">
+                            {{#each defectosVisuales}}
+                            <div class="form-check">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id='ckb_dv_{{idDefectoVisual}}' name='DefectosVisuales' value='{{idDefectoVisual}}' disabled {{#if checked}} checked {{/if}}>
+                                    <label class="custom-control-label" for='ckb_dv_{{idDefectoVisual}}'>{{Descripcion}}</label>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <h4>Observacion</h4>
+                        <div class="form-row">
+                            <textarea class="form-control" name="Observacion" id="Observacion"  rows="3" disabled>{{cliente.Observacion}}</textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12 text-center mt-3">
+                                <a href="/clientes/" class="btn btn-secondary btn-lg"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Volver</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
