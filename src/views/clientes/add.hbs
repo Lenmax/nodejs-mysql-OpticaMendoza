@@ -7,7 +7,7 @@
                     <form action="/clientes/add" method="POST">
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre" required autofocus>
+                                <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Nombre" maxlength="120" required autofocus>
                             </div>
                         </div>
                         <div class="form-row justify-content-center">
@@ -58,16 +58,16 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">OD</th>
-                                                <td><input type="text" class="form-control" name="d_od_esferico" id="d_od_esferico"></td>
-                                                <td><input type="text" class="form-control" name="d_od_cilindrico" id="d_od_cilindrico"></td>
-                                                <td><input type="text" class="form-control" name="d_od_eje" id="d_od_eje"></td>
-                                                <td rowspan="2" style="padding-top: 7%;"><input type="text" class="form-control" name="d_dpi" id="d_dpi"></td>
+                                                <td><input type="text" class="form-control" name="d_od_esferico" id="d_od_esferico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="d_od_cilindrico" id="d_od_cilindrico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="d_od_eje" id="d_od_eje" maxlength="10"></td>
+                                                <td rowspan="2" style="padding-top: 7%;"><input type="text" class="form-control" name="d_dpi" id="d_dpi" maxlength="10"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">OI</th>
-                                                <td><input type="text" class="form-control" name="d_oi_esferico" id="d_oi_esferico"></td>
-                                                <td><input type="text" class="form-control" name="d_oi_cilindrico" id="d_oi_cilindrico"></td>
-                                                <td><input type="text" class="form-control" name="d_oi_eje" id="d_oi_eje"></td>
+                                                <td><input type="text" class="form-control" name="d_oi_esferico" id="d_oi_esferico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="d_oi_cilindrico" id="d_oi_cilindrico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="d_oi_eje" id="d_oi_eje" maxlength="10"></td>
                                                 {{!-- <td><input type="text" class="form-control" name="d_oi_dpi" id="d_oi_dpi"></td> --}}
                                             </tr>
                                         </tbody>
@@ -90,16 +90,16 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">OD</th>
-                                                <td><input type="text" class="form-control" name="c_od_esferico" id="c_od_esferico"></td>
-                                                <td><input type="text" class="form-control" name="c_od_cilindrico" id="c_od_cilindrico"></td>
-                                                <td><input type="text" class="form-control" name="c_od_eje" id="c_od_eje"></td>
-                                                <td rowspan="2" style="padding-top: 7%;"><input type="text" class="form-control" name="c_dpi" id="c_dpi"></td>
+                                                <td><input type="text" class="form-control" name="c_od_esferico" id="c_od_esferico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="c_od_cilindrico" id="c_od_cilindrico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="c_od_eje" id="c_od_eje" maxlength="10"></td>
+                                                <td rowspan="2" style="padding-top: 7%;"><input type="text" class="form-control" name="c_dpi" id="c_dpi" maxlength="10"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">OI</th>
-                                                <td><input type="text" class="form-control" name="c_oi_esferico" id="c_oi_esferico"></td>
-                                                <td><input type="text" class="form-control" name="c_oi_cilindrico" id="c_oi_cilindrico"></td>
-                                                <td><input type="text" class="form-control" name="c_oi_eje" id="c_oi_eje"></td>
+                                                <td><input type="text" class="form-control" name="c_oi_esferico" id="c_oi_esferico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="c_oi_cilindrico" id="c_oi_cilindrico" maxlength="10"></td>
+                                                <td><input type="text" class="form-control" name="c_oi_eje" id="c_oi_eje" maxlength="10"></td>
                                                 {{!-- <td><input type="text" class="form-control" name="c_oi_dpi" id="c_oi_dpi"></td> --}}
                                             </tr>
                                         </tbody>
@@ -126,13 +126,13 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">S/.</span>
                                     </div>
-                                    <input type="text" class="form-control" name="Precio" id="Precio" placeholder="Precio">
+                                    <input type="text" class="form-control" name="Precio" id="Precio" placeholder="Precio" maxlength="10">
                                 </div>
                             </div>
                         </div>
                         <h4>Observacion</h4>
                         <div class="form-row">
-                            <textarea class="form-control" name="Observacion" id="Observacion"  rows="3"></textarea>
+                            <textarea class="form-control" name="Observacion" id="Observacion"  rows="3" maxlength="255"></textarea>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6 text-center mt-3">
